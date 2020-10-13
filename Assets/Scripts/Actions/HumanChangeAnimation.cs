@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  *
@@ -9,6 +10,7 @@ public class HumanChangeAnimation : MonoBehaviour
 {
     public string rightAnime = ""; // Inspectorで設定
     public string leftAnime = ""; //  Inspectorで設定
+    public string sceneName = ""; //  Inspectorで設定
 
     private readonly float speed = 5;
     private float transX = 0;
@@ -51,6 +53,12 @@ public class HumanChangeAnimation : MonoBehaviour
         {
             currentAnime = rightAnime;
             transX = speed / 50;
+        }
+
+        if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("終了");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
