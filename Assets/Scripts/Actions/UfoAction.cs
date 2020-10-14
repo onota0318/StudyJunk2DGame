@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UfoAction : MonoBehaviour
 {
     public GameObject canvas; //キャンバス
     public GameObject newPrefab; // Inspector
+    public GameObject score; // Inspector
     private readonly float speed = 8;
     private readonly float span = 0.8f;
     private float transX = 0;
@@ -27,7 +29,9 @@ public class UfoAction : MonoBehaviour
             unkoPrefab.transform.SetParent(canvas.transform, false);
             
             Vector2 currentUfo = transform.position;
-            unkoPrefab.transform.position = new Vector2(currentUfo.x, 3);
+            unkoPrefab.transform.position = new Vector2(currentUfo.x, 2);
+
+            score.GetComponent<Text>().text = Score.counter.ToString();
         }
     }
 
